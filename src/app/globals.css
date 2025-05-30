@@ -16,7 +16,7 @@
 
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 0 0% 9%;
+    --primary: 262 83% 58%;
 
     --primary-foreground: 0 0% 98%;
 
@@ -197,26 +197,13 @@
   box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.1);
 }
 
-/* Ensure navbar is transparent on initial load */
-header {
-  background-color: transparent !important;
-  z-index: 50;
-}
-
-/* Only apply background when JavaScript sets the scrolled state */
-header[data-scrolled="true"] {
-  background-color: rgba(var(--background), 0.95) !important;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+/* Navbar styles are now handled in the component */
 
 /* Prevent white flash during page load */
 html,
 body {
   background-color: #000 !important; /* Black background to match video */
   min-height: 100%;
-  color: white;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -230,68 +217,120 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
-/* Ensure consistent text appearance throughout the site */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span,
-a,
-button,
-input,
-textarea,
-select,
-label {
-  color: inherit;
+/* Section-specific color schemes */
+
+/* Hero section - white text on dark background */
+.enhanced-hero {
+  color: white;
 }
 
-/* Fix text color for different sections */
-.bg-background,
-.bg-card,
-.bg-muted,
-section {
+.enhanced-hero h1,
+.enhanced-hero h2,
+.enhanced-hero h3,
+.enhanced-hero p,
+.enhanced-hero span {
   color: white !important;
 }
 
-/* Ensure proper contrast for specific elements */
-.text-muted-foreground {
-  color: rgba(255, 255, 255, 0.7) !important;
+/* Light sections - dark text on light background */
+.section-light {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
-/* Fix specific sections */
-#about,
-#timeline,
-#memories,
-#tribute,
-footer {
-  color: white !important;
+.section-light h1,
+.section-light h2,
+.section-light h3,
+.section-light h4,
+.section-light h5,
+.section-light h6,
+.section-light p,
+.section-light span {
+  color: hsl(var(--foreground)) !important;
 }
 
-/* Fix card backgrounds */
+.section-light .text-muted-foreground {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Muted sections - dark text on slightly gray background */
+.section-muted {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
+.section-muted h1,
+.section-muted h2,
+.section-muted h3,
+.section-muted h4,
+.section-muted h5,
+.section-muted h6,
+.section-muted p,
+.section-muted span {
+  color: hsl(var(--foreground)) !important;
+}
+
+.section-muted .text-muted-foreground {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Card styling */
 .memory-card,
-.timeline-item,
-.bg-card {
-  background-color: rgba(30, 30, 46, 0.8) !important;
-  color: white !important;
+.timeline-item {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
 }
 
-/* Fix text in specific components */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  color: white !important;
+.memory-card h3,
+.memory-card p,
+.timeline-item h3,
+.timeline-item p {
+  color: hsl(var(--card-foreground)) !important;
 }
 
-/* Fix button text colors */
-a.bg-white {
+/* Button styling fixes */
+.btn-white {
+  background-color: white;
   color: black !important;
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+/* Instagram showcase specific styling */
+.section-muted .bg-muted {
+  background-color: hsl(var(--muted)) !important;
+}
+
+.section-muted .text-muted-foreground {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Ensure proper text colors for interactive elements */
+.section-light button,
+.section-muted button {
+  color: hsl(var(--foreground)) !important;
+}
+
+.section-light .bg-primary,
+.section-muted .bg-primary {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+/* Fix link colors */
+.section-light a,
+.section-muted a {
+  color: hsl(var(--primary)) !important;
+}
+
+.section-light a:hover,
+.section-muted a:hover {
+  color: hsl(var(--primary)) !important;
+  opacity: 0.8;
 }
 
 /* Hide scrollbars everywhere */

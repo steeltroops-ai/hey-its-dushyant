@@ -6,6 +6,7 @@ import EnhancedHero from "@/components/enhanced-hero";
 import EnhancedNavbar from "@/components/enhanced-navbar";
 import EnhancedTimeline from "@/components/enhanced-timeline";
 import AnimatedSection from "@/components/animated-section";
+import InstagramLiveFeed from "@/components/instagram-live-feed";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
       <EnhancedHero />
 
       {/* About Section */}
-      <AnimatedSection id="about" className="py-20 bg-background">
+      <AnimatedSection id="about" className="py-20 bg-background section-light">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             <span className="inline-block relative">
@@ -51,6 +52,34 @@ export default function Home() {
                 lives.
               </p>
 
+              {/* Photo Gallery Button in the middle of His Story */}
+              <div className="my-8 flex justify-center">
+                <div className="bg-muted/30 p-4 rounded-lg border border-border/50 shadow-md text-center max-w-sm">
+                  <h3 className="text-lg font-medium mb-2">See More Photos</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Explore our photo gallery
+                  </p>
+                  <Link
+                    href="/photos"
+                    className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>Photo Gallery</span>
+                  </Link>
+                </div>
+              </div>
+
               <div className="pt-4">
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-md text-sm font-medium">
                   "To know him was to love him"
@@ -78,7 +107,10 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Timeline Section */}
-      <AnimatedSection id="timeline" className="py-20 bg-muted/50">
+      <AnimatedSection
+        id="timeline"
+        className="py-20 bg-muted/50 section-muted"
+      >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             <span className="inline-block relative">
@@ -132,8 +164,34 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
+      {/* Instagram & Work Section */}
+      <AnimatedSection
+        id="instagram"
+        className="py-20 bg-muted/30 section-muted"
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            <span className="underline inline-block relative">
+              His Instagram & Creative Work
+            </span>
+          </h2>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-16">
+            Explore Dushyant's photography, videography, and creative projects
+            shared on Instagram. From temple visits to behind-the-scenes
+            content, see the world through his lens.
+          </p>
+
+          <AnimatedSection delay={0.2} direction="up">
+            <InstagramLiveFeed />
+          </AnimatedSection>
+        </div>
+      </AnimatedSection>
+
       {/* Memory Wall Section */}
-      <AnimatedSection id="memories" className="py-20 bg-background">
+      <AnimatedSection
+        id="memories"
+        className="py-20 bg-background section-light"
+      >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             <span className="inline-block relative">
@@ -177,6 +235,42 @@ export default function Home() {
               />
             </AnimatedSection>
 
+            {/* Photo Gallery Button in the middle of Memories */}
+            <AnimatedSection
+              delay={0.35}
+              direction="up"
+              className="md:col-span-2 lg:col-span-3"
+            >
+              <div className="flex justify-center">
+                <div className="bg-muted/30 p-6 rounded-lg border border-border/50 shadow-md text-center max-w-md">
+                  <h3 className="text-xl font-medium mb-3">
+                    Explore More Memories
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    Visit our photo gallery to see more cherished moments
+                  </p>
+                  <Link
+                    href="/photos"
+                    className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>View Photo Gallery</span>
+                  </Link>
+                </div>
+              </div>
+            </AnimatedSection>
+
             <AnimatedSection delay={0.4} direction="up">
               <MemoryCard
                 id={4}
@@ -207,43 +301,11 @@ export default function Home() {
               />
             </AnimatedSection>
           </div>
-
-          <div className="mt-16 text-center">
-            <AnimatedSection delay={0.7} direction="up">
-              <div className="max-w-xl mx-auto bg-muted/30 p-6 rounded-lg border border-border/50 shadow-md">
-                <h3 className="text-xl font-medium mb-3">
-                  Explore More Memories
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Visit our photo gallery to see more cherished moments and
-                  memories of Dushyant's life
-                </p>
-                <Link
-                  href="/photos"
-                  className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>View Photo Gallery</span>
-                </Link>
-              </div>
-            </AnimatedSection>
-          </div>
         </div>
       </AnimatedSection>
 
       {/* Tribute Wall Section */}
-      <AnimatedSection id="tribute" className="py-20 bg-muted/50">
+      <AnimatedSection id="tribute" className="py-20 bg-muted/50 section-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             <span className="inline-block relative">

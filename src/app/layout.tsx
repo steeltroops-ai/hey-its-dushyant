@@ -58,6 +58,7 @@ export default function RootLayout({
           header {
             background-color: transparent !important;
             z-index: 50 !important;
+            transition: all 0.3s ease !important;
           }
           header a, header button {
             color: white !important;
@@ -66,6 +67,13 @@ export default function RootLayout({
           header button span {
             background-color: white !important;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+          }
+
+          /* Ensure no background color conflicts */
+          header[data-scrolled="false"] {
+            background-color: transparent !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
           }
 
           /* Prevent white flash during page load */

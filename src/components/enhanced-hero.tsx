@@ -25,14 +25,14 @@ export default function EnhancedHero() {
     if (!video) return;
 
     // Force play on load
-    video.play().catch(err => {
+    video.play().catch((err) => {
       console.log("Initial play error:", err);
     });
 
     // Handle visibility change (when user switches tabs)
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible" && video.paused) {
-        video.play().catch(err => {
+        video.play().catch((err) => {
           console.log("Visibility play error:", err);
         });
       }
@@ -102,27 +102,6 @@ export default function EnhancedHero() {
       </div>
 
       <div className="container mx-auto px-4 text-center z-30 relative flex flex-col items-center justify-center min-h-screen py-16">
-        <div
-          className="absolute inset-0 bg-black/20 backdrop-blur-[2px] rounded-3xl"
-          style={{ opacity: 0.3 }}
-        ></div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="mb-6"
-        >
-          {/* Optional: Add a decorative element like a lotus flower or diya */}
-          <div className="w-20 h-20 mx-auto mb-4 relative">
-            <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse"></div>
-            <div className="absolute inset-2 bg-primary/30 rounded-full"></div>
-            <div className="absolute inset-4 bg-primary/40 rounded-full"></div>
-            <div className="absolute inset-6 bg-primary/50 rounded-full"></div>
-            <div className="absolute inset-8 bg-primary/60 rounded-full"></div>
-            <div className="absolute inset-10 bg-white/70 rounded-full animate-ping"></div>
-          </div>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -176,16 +155,16 @@ export default function EnhancedHero() {
               His Story
             </a>
             <a
-              href="#memories"
-              className="bg-primary/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-md hover:bg-white/20 transition-all transform hover:scale-105 shadow-lg font-medium"
-            >
-              Memories
-            </a>
-            <a
               href="/photos"
               className="bg-white/20 backdrop-blur-sm text-white px-8 py-3 rounded-md hover:bg-white/30 transition-all transform hover:scale-105 shadow-lg font-medium"
             >
               Photo Gallery
+            </a>
+            <a
+              href="#memories"
+              className="bg-primary/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-md hover:bg-white/20 transition-all transform hover:scale-105 shadow-lg font-medium"
+            >
+              Memories
             </a>
           </div>
 

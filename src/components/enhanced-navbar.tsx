@@ -14,22 +14,33 @@ export default function EnhancedNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const navItems: NavItem[] = [
     { name: "About", href: "#about" },
     { name: "Timeline", href: "#timeline" },
+    { name: "Instagram", href: "#instagram" },
     { name: "Memories", href: "#memories" },
     { name: "Tribute", href: "#tribute" },
     { name: "Photos", href: "/photos" },
   ];
 
   useEffect(() => {
+    // Set loaded state after component mounts
+    setIsLoaded(true);
+
     const handleScroll = () => {
       // Change navbar style on scroll
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ["about", "timeline", "memories", "tribute"];
+      const sections = [
+        "about",
+        "timeline",
+        "memories",
+        "instagram",
+        "tribute",
+      ];
       let currentSection = "";
 
       for (const section of sections) {
@@ -69,6 +80,11 @@ export default function EnhancedNavbar() {
     <header
       className="w-full fixed top-0 z-50 transition-all duration-300 py-4"
       data-scrolled={isScrolled ? "true" : "false"}
+      style={{
+        backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.95)" : "transparent",
+        backdropFilter: isScrolled ? "blur(8px)" : "none",
+        boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none",
+      }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo/Site Title */}
