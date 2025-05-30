@@ -335,7 +335,7 @@ export default function Home() {
 
             <p className="text-center max-w-md mb-8 text-muted-foreground">
               This memorial website was created with love by Mayank to honor and
-              preserve the memory of a dear friend.
+              preserve the memory of his dear brother.
             </p>
 
             <div className="flex space-x-6 mb-8">
